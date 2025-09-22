@@ -16,7 +16,7 @@ let numberOfPlayers = 0;
 let ON = false;
 const sound = new Audio("piece/move-self.mp3");
 const capture = new Audio("piece/capture.mp3");
-let serverUrl = "https://chess-game-pwkg.onrender.com";
+let serverUrl = "https://chessgame.herokuapp.com";
 
 let mode = localStorage.getItem("gameMode");
 if (mode === "pve") {
@@ -663,7 +663,7 @@ function positionUpdate(ChessBoardPosition) {
 async function getAIMove(movesLog, board) {
     try {
         const response = await fetch(
-            "https://chess-game-backend-gl0l.onrender.com/move",
+            "https://chessgame.herokuapp.com/move",
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -683,3 +683,4 @@ async function getAIMove(movesLog, board) {
 
 createSquare();
 positionUpdate(ChessBoardPosition);
+
